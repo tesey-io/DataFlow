@@ -1,0 +1,16 @@
+{
+  "namespace": "dataflow",
+  "name": "report",
+  "type": "record",
+  "fields": [
+    {"name": "operationId", "type": ["null", "string"], "default": null},
+    {"name": "cnum", "type": ["null", "string"], "default": null},
+    {"name": "firstName", "type": ["null", "string"], "default": null},
+    {"name": "lastName", "type": ["null", "string"], "default": null},
+    {"name": "amount", "type": ["null", "float"], "default": null},
+    {"name": "currency", "type": ["null", "string"], "default": null},
+    {"name": "authTime", "type": ["null", "string"], "default": null},
+    {"name": "entryId", "type": ["null", "string"], "default": null},
+    {"name": "entryTime", "type": ["null", "string"], "default": null}
+  ]
+}

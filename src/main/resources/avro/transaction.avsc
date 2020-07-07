@@ -1,0 +1,10 @@
+{
+  "namespace": "dataflow",
+  "name": "transaction",
+  "type": "record",
+  "fields": [
+    {"name": "operationId", "type": ["null", "string"], "default": null},
+    {"name": "entryId", "type": ["null", "string"], "default": null},
+    {"name": "entryTime", "type": ["null", "string"], "default": null}
+  ]
+}
