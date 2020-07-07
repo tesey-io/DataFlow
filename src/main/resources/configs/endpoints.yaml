@@ -1,0 +1,46 @@
+endpoints:
+  - name: authorization
+    type: kafka
+    schemaPath: avro/authorization.avsc
+    format: avro
+    options:
+    - name: topic
+      value: authorization
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092
+  - name: transaction
+    type: kafka
+    schemaPath: avro/transaction.avsc
+    format: avro
+    options:
+    - name: topic
+      value: transaction
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092
+  - name: summary
+    type: kafka
+    schemaPath: avro/summary.avsc
+    format: avro
+    options:
+    - name: topic
+      value: summary
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092
+  - name: customer
+    type: kafka
+    schemaPath: avro/customer.avsc
+    format: avro
+    options:
+    - name: topic
+      value: customer
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092
+  - name: report
+    type: kafka
+    schemaPath: avro/report.avsc
+    format: avro
+    options:
+    - name: topic
+      value: report
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092

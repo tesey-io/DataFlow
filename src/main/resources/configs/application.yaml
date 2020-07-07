@@ -1,0 +1,22 @@
+dataflows:
+  - name: authorizationStream
+    source: authorization
+    isFirst: true
+  - name: transactionStream
+    source: transaction
+  - name: summaryStream
+    source: authorizationStream
+    select: "authorizationStream.operationId, authorizationStream.cnum, authorizationStream.amount, authorizationStream.currency, authorizationStream.authTime, transaction.entryId, transaction.entryTime"
+    join:
+      dataflow: transactionStream
+      where: "authorizationStream.operationId = transaction.operationId"
+    sink: summary
+  - name: customerStream
+    source: customer
+  - name: reportStream
+    source: summaryStream
+    select: "summaryStream.operationId, summaryStream.cnum, customerStream.firstName, customerStream.lastName, summaryStream.amount, summaryStream.currency, summaryStream.authTime, summaryStream.entryId, summaryStream.entryTime"
+    join:
+      dataflow: customerStream
+      where: "summaryStream.cnum = customerStream.cnum"
+    sink: report
