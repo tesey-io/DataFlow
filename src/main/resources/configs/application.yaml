@@ -2,17 +2,21 @@ dataflows:
   - name: authorizationStream
     source: authorization
     isFirst: true
+    window: 60000
   - name: transactionStream
     source: transaction
+    window: 60000
   - name: summaryStream
     source: authorizationStream
     select: "authorizationStream.operationId, authorizationStream.cnum, authorizationStream.amount, authorizationStream.currency, authorizationStream.authTime, transaction.entryId, transaction.entryTime"
+    window: 60000
     join:
       dataflow: transactionStream
       where: "authorizationStream.operationId = transaction.operationId"
     sink: summary
   - name: customerStream
     source: customer
+    window: 60000
   - name: reportStream
     source: summaryStream
     select: "summaryStream.operationId, summaryStream.cnum, customerStream.firstName, customerStream.lastName, summaryStream.amount, summaryStream.currency, summaryStream.authTime, summaryStream.entryId, summaryStream.entryTime"

@@ -11,6 +11,9 @@ import org.apache.beam.sdk.values.PCollection;
 import org.apache.beam.sdk.values.PCollectionTuple;
 import org.apache.beam.sdk.values.Row;
 import org.apache.beam.sdk.values.TupleTag;
+import org.apache.beam.sdk.transforms.windowing.FixedWindows;
+import org.apache.beam.sdk.transforms.windowing.Window;
+import org.joda.time.Duration;
 
 import java.util.HashMap;
 
@@ -82,9 +85,34 @@ public class DataflowProcessor {
 
                 PCollection<Row> table = collectionContext.get(dataflowConfig.getSource());
 
+                if (dataflowConfig.getWindow() != null){
+
+                    table = table
+                        .apply(String.format("Set window size for dataflow `%s`", dataflowName),
+                            Window.<Row>into(FixedWindows.of(Duration.standardSeconds(dataflowConfig.getWindow()))));
+
+                }
+
                 if (dataflowConfig.getJoin() != null) {
 
                     String rightDataflowName = dataflowConfig.getJoin().getDataflow();
+
+                    DataflowConfig rightDataflowConfig = dataflowParser.getDataflows().get(rightDataflowName);
+
+                    if (dataflowConfig.getWindow() == null && rightDataflowConfig.getWindow() != null) {
+                        throw new Exception(String.format("Please specify window size for joining dataflow `%s`",
+                            dataflowConfig.getName()));
+                    }
+
+                    if (dataflowConfig.getWindow() != null && rightDataflowConfig.getWindow() == null) {
+                        throw new Exception(String.format("Please specify window size for joining dataflow `%s`",
+                            rightDataflowConfig.getName()));
+                    }
+
+                    if (!dataflowConfig.getWindow().equals(rightDataflowConfig.getWindow())) {
+                        throw new Exception(String.format("Please set the same window size for joining dataflows "
+                            + "`%s` and `%s`", dataflowConfig.getName(), rightDataflowConfig.getName()));
+                    }
 
                     if (!collectionContext.containsKey(rightDataflowName )) {
 

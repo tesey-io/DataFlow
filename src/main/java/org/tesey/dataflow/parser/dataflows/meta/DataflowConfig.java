@@ -12,6 +12,8 @@ public class DataflowConfig {
 
     private String sink;
 
+    private Integer window;
+
     private Boolean isFirst = false;
 
     private DataflowJoin join;
@@ -54,6 +56,14 @@ public class DataflowConfig {
 
     public void setSink(String sink) {
         this.sink = sink;
+    }
+
+    public Integer getWindow() {
+        return window;
+    }
+
+    public void setWindow(Integer window) {
+        this.window = window;
     }
 
     public Boolean getIsFirst() {
