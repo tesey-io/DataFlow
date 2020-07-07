@@ -63,6 +63,12 @@ public class DataflowProcessor {
 
     }
 
+    private static String getGroupBy(String groupBy) throws Exception {
+
+        return groupBy != null && groupBy != "" ? String.format(" GROUP BY %s ", groupBy) : "";
+
+    }
+
     private static void composePipeline(Pipeline pipeline,
                                         HashMap<String, PCollection<Row>> collectionContext,
                                         String dataflowName,
@@ -130,13 +136,14 @@ public class DataflowProcessor {
                         SqlTransform.query(
                             String.format(queryWithJoinTemplate, getSelect(dataflowConfig.getSelect()),
                                 dataflowConfig.getSource(), rightDataflowName, dataflowConfig.getJoin().getWhere())
-                            + getFilter(dataflowConfig.getFilter()))
+                            + getFilter(dataflowConfig.getFilter()) + getGroupBy(dataflowConfig.getGroupBy()))
                     );
 
                 } else {
                     table = table.apply(String.format("Transform `%s` to `%s`", dataflowConfig.getSource(),
                         dataflowName), SqlTransform.query(String.format(simpleQueryTemplate,
-                        getSelect(dataflowConfig.getSelect())) + getFilter(dataflowConfig.getFilter())));
+                        getSelect(dataflowConfig.getSelect())) + getFilter(dataflowConfig.getFilter())
+                        + getGroupBy(dataflowConfig.getGroupBy())));
                 }
 
                 collectionContext.put(dataflowName, table);

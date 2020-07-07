@@ -1,0 +1,9 @@
+{
+  "namespace": "dataflow",
+  "name": "groupedAuthorizationsByCnum",
+  "type": "record",
+  "fields": [
+    {"name": "cnum", "type": ["null", "string"], "default": null},
+    {"name": "total_amount", "type": ["null", "float"], "default": null}
+  ]
+}

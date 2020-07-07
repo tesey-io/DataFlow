@@ -14,6 +14,8 @@ public class DataflowConfig {
 
     private Integer window;
 
+    private String groupBy;
+
     private Boolean isFirst = false;
 
     private DataflowJoin join;
@@ -64,6 +66,14 @@ public class DataflowConfig {
 
     public void setWindow(Integer window) {
         this.window = window;
+    }
+
+    public String getGroupBy() {
+        return groupBy;
+    }
+
+    public void setGroupBy(String groupBy) {
+        this.groupBy = groupBy;
     }
 
     public Boolean getIsFirst() {
