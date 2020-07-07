@@ -44,3 +44,12 @@ endpoints:
       value: report
     - name: bootstrapServers
       value: kafka-cp-kafka-headless:9092
+  - name: groupedAuthorizationsByCnum
+    type: kafka
+    schemaPath: avro/groupedAuthorizationsByCnum.avsc
+    format: avro
+    options:
+    - name: topic
+      value: groupedAuthorizationsByCnum
+    - name: bootstrapServers
+      value: kafka-cp-kafka-headless:9092

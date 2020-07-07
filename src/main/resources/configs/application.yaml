@@ -24,3 +24,8 @@ dataflows:
       dataflow: customerStream
       where: "summaryStream.cnum = customerStream.cnum"
     sink: report
+  - name: groupedAuthorizationsByCnumStream
+    source: summaryStream
+    select: "authorizationStream.cnum, SUM(authorizationStream.amount) AS total_amount"
+    groupBy: "authorizationStream.cnum"
+    sink: groupedAuthorizationsByCnum
