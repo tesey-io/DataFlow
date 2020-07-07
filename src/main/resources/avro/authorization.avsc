@@ -1,0 +1,12 @@
+{
+  "namespace": "dataflow",
+  "name": "authorization",
+  "type": "record",
+  "fields": [
+    {"name": "operationId", "type": ["null", "string"], "default": null},
+    {"name": "cnum", "type": ["null", "string"], "default": null},
+    {"name": "amount", "type": ["null", "float"], "default": null},
+    {"name": "currency", "type": ["null", "string"], "default": null},
+    {"name": "authTime", "type": ["null", "string"], "default": null}
+  ]
+}

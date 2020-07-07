@@ -1,0 +1,10 @@
+{
+  "namespace": "dataflow",
+  "name": "customer",
+  "type": "record",
+  "fields": [
+    {"name": "cnum", "type": ["null", "string"], "default": null},
+    {"name": "firstName", "type": ["null", "string"], "default": null},
+    {"name": "lastName", "type": ["null", "string"], "default": null}
+  ]
+}
