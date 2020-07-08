@@ -13,7 +13,7 @@ mvn clean install
 
 ## Usage
 
-1. Describe <a href="#dataflowaggregator.io/EndpointsSpecification">endpoints</a> used in processing data in endpoints.yaml similar to following:
+1. Describe <a href="#dataflow.io/EndpointsSpecification">endpoints</a> used in processing data in endpoints.yaml similar to following:
 ```yaml
 endpoints:
   - name: authorization
@@ -72,7 +72,7 @@ endpoints:
       value: kafka-cp-kafka-headless:9092
 ```
 
-2. Describe <a href="#dataflowaggregator.io/DataflowsSpecification">dataflows</a> that should be processed in endpoints.yaml similar to following:
+2. Describe <a href="#dataflow.io/DataflowsSpecification">dataflows</a> that should be processed in endpoints.yaml similar to following:
 ```yaml
 dataflows:
   - name: authorizationStream
@@ -134,7 +134,7 @@ target/tesey-dataflow-1.0-SNAPSHOT.jar \
 --dataflowConfigFilePath=configs/application.yaml
 ```
 
-<h2 id="dataflowaggregator.io/EndpointsSpecification">Endpoints specification
+<h2 id="dataflow.io/EndpointsSpecification">Endpoints specification
 </h2>
 <table>
 <thead>
@@ -180,14 +180,14 @@ The format of ingesting/exporting data. currently supported formats are `avro` a
 <td>
 <code>options</code>/td>
 <td>
-The set of options depends on the <a href="#dataflowaggregator.io/EndpointType">endpoint type</a> 
+The set of options depends on the <a href="#dataflow.io/EndpointType">endpoint type</a> 
 </td>
 </tr>
 </tbody>
 </table>
 
 
-<h3 id="dataflowaggregator.io/EndpointType">EndpointType
+<h3 id="dataflow.io/EndpointType">EndpointType
 </h3>
 The DataflowAggregator currently supported the following endpoint types:
 * kafka - the endpoint type used to read/write messages in Apache Kafka topics
@@ -240,7 +240,7 @@ The path of ingesting/exporting files
 </tbody>
 </table>
 
-<h2 id="dataflowaggregator.io/DataflowsSpecification">Dataflows specification
+<h2 id="dataflow.io/DataflowsSpecification">Dataflows specification
 </h2>
 <table>
 <thead>
