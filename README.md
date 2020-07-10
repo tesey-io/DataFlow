@@ -108,7 +108,7 @@ dataflows:
 ```
 
 3. Submit the application like the following specified the pathes to endpoints.yaml and application.yaml 
-in options `endpointConfigFilePath` and `dataflowConfigFilePath` respectively: 
+in options <code>endpointConfigFilePath</code> and <code>dataflowConfigFilePath</code> respectively: 
 
 ### Submit Spark Application
 ```shell script
@@ -157,7 +157,7 @@ The name used to identify endpoint
 <code>type</code></br>
 string</td>
 <td>
-The type of endpoint, now is supported types are `kafka` and `file`
+The type of endpoint, now is supported types are <code>kafka</code> and <code>file</code>
 </td>
 </tr>
 <tr>
@@ -173,12 +173,12 @@ The path to Avro schema that corresponds with the structure of ingesting/exporti
 <code>format</code></br>
 string</td>
 <td>
-The format of ingesting/exporting data. currently supported formats are `avro` and `parquet` 
+The format of ingesting/exporting data. currently supported formats are <code>avro</code> and <code>parquet</code> 
 </td>
 </tr>
 <tr>
 <td>
-<code>options</code>/td>
+<code>options</code>
 <td>
 The set of options depends on the <a href="#dataflow.io/EndpointType">endpoint type</a> 
 </td>
@@ -190,8 +190,9 @@ The set of options depends on the <a href="#dataflow.io/EndpointType">endpoint t
 <h3 id="dataflow.io/EndpointType">EndpointType
 </h3>
 The DataflowAggregator currently supported the following endpoint types:
-* kafka - the endpoint type used to read/write messages in Apache Kafka topics
-* file - the endpoint type used to read/write files to HDFS or to object storage like S3, GS, etc.
+
+* <code>kafka</code> - the endpoint type used to read/write messages in Apache Kafka topics
+* <code>file</code> - the endpoint type used to read/write files to HDFS or to object storage like S3, GS, etc.
 
 ### Kafka endpoint options
 <table>
