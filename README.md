@@ -72,7 +72,7 @@ endpoints:
       value: kafka-cp-kafka-headless:9092
 ```
 
-2. Describe <a href="#dataflow.io/DataflowsSpecification">dataflows</a> that should be processed in endpoints.yaml similar to following:
+2. Describe <a href="#dataflow.io/DataflowsSpecification">dataflows</a> that should be processed in application.yaml similar to following:
 ```yaml
 dataflows:
   - name: authorizationStream
