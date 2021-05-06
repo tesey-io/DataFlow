@@ -193,6 +193,7 @@ The DataflowAggregator currently supported the following endpoint types:
 
 * <code>kafka</code> - the endpoint type used to read/write messages in Apache Kafka topics
 * <code>file</code> - the endpoint type used to read/write files to HDFS or to object storage like S3, GS, etc.
+* <code>jms</code> - the endpoint type used to read/write in JMS queues.
 
 ### Kafka endpoint options
 <table>
@@ -236,6 +237,98 @@ A comma-separated list of host and port pairs that are the addresses of the Kafk
 string</td>
 <td>
 The path of ingesting/exporting files
+</td>
+</tr>
+</tbody>
+</table>
+
+### Jms endpoint options
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+<code>brokerHost</code></br>
+string</td>
+<td>
+The JMS broker host
+</td>
+</tr>
+<tr>
+<td>
+<code>brokerPort</code></br>
+string</td>
+<td>
+The JMS broker port
+</td>
+</tr>
+<tr>
+<td>
+<code>queueManager</code></br>
+string</td>
+<td>
+The name of a queue manager
+</td>
+</tr>
+<tr>
+<td>
+<code>messageChannel</code></br>
+string</td>
+<td>
+The name of a messageChannel
+</td>
+</tr>
+<tr>
+<td>
+<code>transportType</code></br>
+integer</td>
+<td>
+The transport type
+</td>
+</tr>
+<tr>
+<td>
+<code>queueName</code></br>
+string</td>
+<td>
+The queue name
+</td>
+</tr>
+<tr>
+<td>
+<code>rootTag</code></br>
+string</td>
+<td>
+The tag of a root element (specified for xml format)
+</td>
+</tr>
+<tr>
+<td>
+<code>recordTag</code></br>
+string</td>
+<td>
+The tag of a record element (specified for xml format)
+</td>
+</tr>
+<tr>
+<td>
+<code>xsltStylesheetPath</code></br>
+string</td>
+<td>
+The path of a XSLT file
+</td>
+</tr>
+<tr>
+<td>
+<code>charset</code></br>
+string</td>
+<td>
+The character set
 </td>
 </tr>
 </tbody>

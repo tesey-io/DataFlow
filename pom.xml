@@ -26,10 +26,34 @@ limitations under the License.
         <maven.compiler.target>1.8</maven.compiler.target>
         <beam.version>2.12.0</beam.version>
         <hadoop.version>2.7.0</hadoop.version>
-        <avro.version>1.8.2</avro.version>
+        <avro.version>1.9.0.1p</avro.version>
         <log4j.version>1.2.17</log4j.version>
         <snakeyaml.version>1.21</snakeyaml.version>
+        <ibmmqclient.version>9.1.2.0</ibmmqclient.version>
+        <saxon-he.version>9.4</saxon-he.version>
+        <beam-io-jms.version>2.6.0</beam-io-jms.version>
     </properties>
+
+    <repositories>
+        <repository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>bintray-zolyfarkas-core</id>
+            <name>bintray</name>
+            <url>https://dl.bintray.com/zolyfarkas/core</url>
+        </repository>
+    </repositories>
+    <pluginRepositories>
+        <pluginRepository>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+            <id>bintray-zolyfarkas-core</id>
+            <name>bintray-plugins</name>
+            <url>https://dl.bintray.com/zolyfarkas/core</url>
+        </pluginRepository>
+    </pluginRepositories>
 
     <dependencies>
         <dependency>
@@ -46,6 +70,11 @@ limitations under the License.
             <groupId>org.apache.beam</groupId>
             <artifactId>beam-sdks-java-io-parquet</artifactId>
             <version>${beam.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.beam</groupId>
+            <artifactId>beam-sdks-java-io-jms</artifactId>
+            <version>${beam-io-jms.version}</version>
         </dependency>
         <dependency>
             <groupId>org.apache.beam</groupId>
@@ -72,6 +101,22 @@ limitations under the License.
             <artifactId>avro</artifactId>
             <version>${avro.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.ibm.mq</groupId>
+            <artifactId>com.ibm.mq.allclient</artifactId>
+            <version>${ibmmqclient.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.saxon</groupId>
+            <artifactId>Saxon-HE</artifactId>
+            <version>${saxon-he.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.json</groupId>
+            <artifactId>json</artifactId>
+            <version>20201115</version>
+        </dependency>
+
     </dependencies>
 
     <build>
